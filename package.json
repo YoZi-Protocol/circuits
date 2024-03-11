@@ -1,0 +1,20 @@
+{
+  "name": "@eos420/circuits",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "eos420 circuits",
+  "license": "GPL-3.0-only",
+  "scripts": {
+    "test": "mocha --timeout 60000 ./tests"
+  },
+  "dependencies": {
+    "circomlib": "^2.0.5"
+  },
+  "devDependencies": {
+    "@applied-crypto/merkletree": "^0.1.2",
+    "@zk-kit/eddsa-poseidon": "^0.6.0",
+    "circom_tester": "^0.0.20",
+    "mocha": "^10.3.0",
+    "poseidon-lite": "^0.2.0"
+  }
+}
