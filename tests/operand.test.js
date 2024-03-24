@@ -28,6 +28,7 @@ describe('operand', async () => {
     const address = `0x5B38Da6a701c568545dCfcB03FcB875f56beddC4`;
     const delegate = `0x5B38Da6a701c568545dCfcB03FcB875f56beddC4`;
     const expiration = `0x3c`;
+    const period = 0x0;
     const nonce = `0x2478e8e727b03d476daa7009af4427812c441d9dc1aa8b91ab167bfc3b9a8d40`;
 
     const select = poseidon3([chainId, assetId, address]);
@@ -36,7 +37,7 @@ describe('operand', async () => {
       select,
       identifier,
       delegate,
-      expiration,
+      expiration + period,
       nonce,
     ]);
 
@@ -47,6 +48,7 @@ describe('operand', async () => {
       address,
       delegate,
       expiration,
+      period,
       nonce,
       commitment,
     });

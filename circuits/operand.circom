@@ -14,6 +14,7 @@ template Operand() {
     signal input delegate;
 
     signal input expiration;
+    signal input period;
     signal input nonce;
 
     signal output commitment;
@@ -31,7 +32,7 @@ template Operand() {
     izd.out === izn.out;
 
     component mux = Mux1();
-    mux.c[0] <== expiration;
+    mux.c[0] <== expiration + period;
     mux.c[1] <== 0;
     mux.s <== izn.out;
 

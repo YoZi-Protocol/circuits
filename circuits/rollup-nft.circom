@@ -17,6 +17,7 @@ template NftRollup(N) {
     signal input nonce[N];
 
     signal input expiration;
+    signal input period;
 
     signal input Ax;
     signal input Ay;
@@ -38,6 +39,7 @@ template NftRollup(N) {
         operand[i].identifier <== identifier[i];
         operand[i].delegate <== delegate[i];
         operand[i].expiration <== expiration;
+        operand[i].period <== period;
         operand[i].nonce <== nonce[i];
 
         tree.leaves[i] <== operand[i].commitment;
@@ -58,7 +60,7 @@ component main {
         chain_id, asset_id,
         address,
         identifier, delegate,
-        expiration,
+        expiration, period,
         Ax, Ay
     ]
 } = NftRollup(16);

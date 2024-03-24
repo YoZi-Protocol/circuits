@@ -14,6 +14,7 @@ template OperandTest() {
     signal input delegate;
 
     signal input expiration;
+    signal input period;
     signal input nonce;
 
     signal input commitment;
@@ -29,6 +30,7 @@ template OperandTest() {
     operand.identifier <== identifier;
     operand.delegate <== delegate;
     operand.expiration <== expiration;
+    operand.period <== period;
     operand.nonce <== nonce;
 
     commitment === operand.commitment;

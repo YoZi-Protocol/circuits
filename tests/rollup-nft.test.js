@@ -27,7 +27,8 @@ describe('rollup nft', async () => {
 
     const address = `0x5B38Da6a701c568545dCfcB03FcB875f56beddC4`;
 
-    const expiration = 604800;
+    const expiration = 24397592;
+    const period = 604800;
 
     const identifier = new Array(16).fill(0);
     identifier[0] = `0x${Buffer.from(new TextEncoder().encode('3')).toString(
@@ -48,13 +49,13 @@ describe('rollup nft', async () => {
       select,
       identifier[0],
       delegate[0],
-      expiration,
+      expiration + period,
       nonce[0],
     ]);
 
     const leafHash = input => input;
     const nodeHash = (left, right) => poseidon2([left, right]);
-    const tree = new merkleTree(leaves, leafHash, nodeHash);
+    const tree = merkleTree(leaves, leafHash, nodeHash);
     const root = tree.getRoot();
 
     const a = derivePublicKey('secret');
@@ -68,6 +69,7 @@ describe('rollup nft', async () => {
       delegate,
       nonce,
       expiration,
+      period,
       Ax: a[0],
       Ay: a[1],
       R8x: signature.R8[0],
